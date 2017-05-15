@@ -1,0 +1,2 @@
+app_path: /srv/www/test
+app_repo: https://github.com/bogdanr/test-python-app.git

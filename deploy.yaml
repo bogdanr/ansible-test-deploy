@@ -1,0 +1,17 @@
+---
+- name: Deploy Python app
+  hosts: py.radulescu.work
+  remote_user: ubuntu
+  become: yes
+  become_user: www-data
+  vars_files:
+    - cfg.yaml
+
+  tasks:
+    - name: Pull sources from the repository.
+      git: repo={{app_repo}} dest={{app_path}} version=master
+      notify:
+        - reload supervisor
+
+  handlers:
+    - include: handlers.yaml

@@ -1,0 +1,4 @@
+---
+- name: reload supervisor
+  action: command supervisorctl reload all
+  become: true
